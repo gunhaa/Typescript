@@ -1,3 +1,11 @@
+// 사용자 정의 타입
+// 컴파일시 객체로 관리 됨
+enum EnumRole {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+
 // 타입 명시, 타입스크립트가 객체를 인식할 수 있도록
 // 추론이 불가능하다면 유용하다
 const person: {
@@ -8,11 +16,13 @@ const person: {
   // n개의 요소가 있는 특별한 배열을 알린다
   // push로 들어오는 것은 타입스크립트가 막지 못해 주의가 필요하다
   role: [number, string];
+  enumRole: EnumRole;
 } = {
   name: "gunha",
   age: 30,
   hobbies: ["sports", "cooking"],
-  role: [2, 'author']
+  role: [2, "author"],
+  enumRole: EnumRole.READ_ONLY,
 };
 
 console.log(person.name);
